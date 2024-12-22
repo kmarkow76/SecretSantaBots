@@ -19,17 +19,8 @@ public class ParticipantCrudOperations
     /// <param name="username">Имя пользователя</param>
     /// <param name="assignedId">Id пользователя, которому надо подойти.(Как мысль по демфолту это одно значение, допустим ноль,которое после меняется на какое-то другое)</param>
     /// <param name="role">Статус пользователя(администратор или пользователь)</param>
-    public async Task Create(Guid idGame,long tgId,string username,Guid assignedId,bool role)
+    public async Task Create(Participant participant)
     {
-        var participant = new Participant()
-        {
-            Id = Guid.NewGuid(),
-            GameId = idGame,
-            TelegramId = tgId,
-            Username = username,
-            AssignedToId = assignedId,
-            Role = role
-        };
         await _context.Participants.AddAsync(participant);
         await _context.SaveChangesAsync();
     }
@@ -65,5 +56,9 @@ public class ParticipantCrudOperations
         var participant = await _context.Participants.FirstOrDefaultAsync(p=>p.Id==id);
         _context.Participants.Remove(participant);
         await _context.SaveChangesAsync();
+    }
+    public async Task<Participant> GetByUserId(long userId)
+    {
+        return await _context.Participants.FirstOrDefaultAsync(p => p.TelegramId == userId);
     }
 }

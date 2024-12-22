@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SecretSantaBots.DataBase;
+using SecretSantaBots.Services;
 
 
 Console.WriteLine("Hello, World!");

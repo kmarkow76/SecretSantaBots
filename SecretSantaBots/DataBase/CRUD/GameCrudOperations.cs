@@ -62,4 +62,9 @@ public class GameCrudOperations
         var game = await _context.Games.FirstOrDefaultAsync(g => g.Id == id);
         _context.Games.Remove(game);
     }
+    public async Task<Game> GetByChatId(long chatId)
+    {
+        return await _context.Games.FirstOrDefaultAsync(g => g.ChatId == chatId);
+    }
+
 }
