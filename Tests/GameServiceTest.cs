@@ -109,7 +109,7 @@ public class GameServiceTests
 
     /// <summary>
     /// Тест, проверяющий, что участник может присоединиться к игре.
-    /// </summary>
+    /// </summary>d
     /// <returns>Тест на добавление участника в игру.</returns>
     [Fact]
     public async Task JoinGame_ValidParticipant_ShouldJoinGame()
