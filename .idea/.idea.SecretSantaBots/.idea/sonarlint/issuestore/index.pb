@@ -1,8 +1,6 @@
 
 J
 SecretSantaBots/Program.cs,c\5\c5c958bb6bb52706854f9752004aa717cc1cb42a
-P
- SecretSantaBots/appsettings.json,4\1\41b9387ce0eed11e32ab2056debb0c4a20928ce8
 I
 SecretSantaBots/README.md,3\1\3196fda6ad9f31ad338005268f7d43dfe0cc486b
 ^
@@ -13,8 +11,6 @@ I
 -SecretSantaBots/Controllers/CommandHandler.cs,4\e\4e284de0c75485ed744239bbd419fe9cc59491a1
 W
 'SecretSantaBots/Services/GameService.cs,7\2\727e5a3750657a9b02cef9f1404ea4ce8754bf61
-b
-2SecretSantaBots/Services/AdminValidationService.cs,c\b\cb36966817619731977dc29f1687ff452148e22d
 _
 /SecretSantaBots/Services/NotificationService.cs,3\a\3a8b4841075c129220bfe542f418e6379744d13d
 Z
@@ -27,3 +23,21 @@ W
 .SecretSantaBots/DataBase/Models/Participant.cs,9\1\911e7e83387e4e423202fac65fc25b67f2683562
 I
 SecretSantaBots/Logger.cs,7\c\7c13d17a442987b47a23c9e1c7e23294b484049e
+N
+SecretSantaBots/Logs/Logggg.cs,5\e\5ea8c06515b91cd53bfd65dfba6042aca7cb79e5
+T
+$SecretSantaBots/Validators/Class1.cs,8\3\83b9aae0404649ef459a7edbdf061c9fe177d8af
+c
+3SecretSantaBots/DataBase/CRUD/GameCrudOperations.cs,1\2\12ce8635251288758c46ceae4960b1cf8364ba50
+j
+:SecretSantaBots/DataBase/CRUD/ParticipantCrudOperations.cs,3\3\33ee7654b5c8dcce4b46e5b2f34bd710c0d9c430
+H
+Tests/GameServiceTest.cs,8\e\8eb3cce879b5cdc74f4cbb471dee37c87c997428
+Q
+!Tests/NotificationServiceTests.cs,2\e\2e6d66a169c51870723afc48dfb3f83fa0d5cd82
+L
+Tests/PairingServiceTests.cs,6\7\67d0d975594fca6c01aa47923ee94f649eb8e988
+W
+'SecretSantaBots/Config/appsettings.json,9\2\923a5ababb2e35fdacd337cedb9ed56269c54992
+`
+0SecretSantaBots/Services/AuthorizationService.cs,5\5\55598edc553ed590f6ea5687fea1a48839a9e3d5
