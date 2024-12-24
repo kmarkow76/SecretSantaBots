@@ -23,12 +23,12 @@ SecretSantaBot
 │   ├── PairingService.cs      // Алгоритм распределения участников
 │   └── ValidationService.cs   // Общая валидация моделей
 ├── Validators                 // Логика валидации моделей
-│   ├── GameCrudOperations.cs  // Операции CRUD для игры
-│   └── ParticipantCrudOperations.cs // Операции CRUD для участников
+│   ├── GameValidation.cs      // Валидация
+│   └── ParticipantValidation.cs // Валидация
 ├── Database                   // Миграции и контекст
 │   ├── CRUD
-│   │   ├── ParticipantRepository.cs // Управление участниками
-│   │   └── GameRepository.cs      // Управление состоянием игры
+│   │   ├── articipantCrudOperations.cs // Управление участниками
+│   │   └── GameCrudOperations.cs      // Управление состоянием игры
 │   ├── ApplicationDbContext.cs // Контекст Entity Framework Core
 │   ├── Models
 │   │   ├── Game.cs             // Модель игры
