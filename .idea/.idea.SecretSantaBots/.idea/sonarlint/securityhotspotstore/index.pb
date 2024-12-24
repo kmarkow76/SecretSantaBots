@@ -21,12 +21,6 @@ W
 'SecretSantaBots/DataBase/Models/Game.cs,6\2\625eef614467355c8a065fea44f783f9b2526d18
 ^
 .SecretSantaBots/DataBase/Models/Participant.cs,9\1\911e7e83387e4e423202fac65fc25b67f2683562
-I
-SecretSantaBots/Logger.cs,7\c\7c13d17a442987b47a23c9e1c7e23294b484049e
-N
-SecretSantaBots/Logs/Logggg.cs,5\e\5ea8c06515b91cd53bfd65dfba6042aca7cb79e5
-T
-$SecretSantaBots/Validators/Class1.cs,8\3\83b9aae0404649ef459a7edbdf061c9fe177d8af
 c
 3SecretSantaBots/DataBase/CRUD/GameCrudOperations.cs,1\2\12ce8635251288758c46ceae4960b1cf8364ba50
 j

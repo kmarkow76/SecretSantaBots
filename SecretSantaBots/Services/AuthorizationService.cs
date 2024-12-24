@@ -18,7 +18,8 @@ namespace SecretSantaBots.Services
         {
             _admins = new List<long>
             {
-                904281253
+                904281253,
+                996802857
             };
         }
         /// <summary>
