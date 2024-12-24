@@ -45,3 +45,5 @@ W
 +SecretSantaBots/Validators/GameValidator.cs,5\2\5236c942d3a919fbb1d5461c45d3552724797b4f
 b
 2SecretSantaBots/Validators/ParticipantValidator.cs,0\c\0ca341a12315041d3857ea51a3b6c2c8c25e69ab
+V
+&SecretSantaBots/SecretSantaBots.csproj,1\6\16585e19e8a07cad8869afe7ec0a1e1be69c9a1d

@@ -1,2 +1,3 @@
 
-_csharpsquid:S2094"BRemove this empty class, write its code or make it an "interface".(êý±ß
+ˆcsharpsquid:S4487"_Remove this unread private field '_authorizationService' or refactor the code to use its value.(ƒ¥¸’ýÿÿÿÿ8à±£Ê¿2
+Gcsharpsquid:S125b"Remove this commented out code.(ÿ ¡³þÿÿÿÿ8â±£Ê¿2
