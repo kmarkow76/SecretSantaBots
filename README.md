@@ -142,7 +142,7 @@ public AuthorizationService()
     };
 }
 ```
-
+для получения своего ID в Telegram необходимо перейти ы бота ``` @getmyid_bot ```
 ---
 
 ## Параметры для игры
