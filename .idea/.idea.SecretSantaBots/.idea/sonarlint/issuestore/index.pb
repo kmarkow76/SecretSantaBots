@@ -41,3 +41,7 @@ W
 'SecretSantaBots/Config/appsettings.json,9\2\923a5ababb2e35fdacd337cedb9ed56269c54992
 `
 0SecretSantaBots/Services/AuthorizationService.cs,5\5\55598edc553ed590f6ea5687fea1a48839a9e3d5
+[
++SecretSantaBots/Validators/GameValidator.cs,5\2\5236c942d3a919fbb1d5461c45d3552724797b4f
+b
+2SecretSantaBots/Validators/ParticipantValidator.cs,0\c\0ca341a12315041d3857ea51a3b6c2c8c25e69ab

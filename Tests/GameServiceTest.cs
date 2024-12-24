@@ -130,5 +130,131 @@ public class GameServiceTests
         Assert.NotNull(participant);
         Assert.Equal(username, participant.Username);
     }
+      /// <summary>
+    /// Тест, проверяющий, что игра останавливается для админа.
+    /// </summary>
+    /// <returns>Тест на остановку игры для админа.</returns>
+    [Fact]
+    public async Task StopGame_ValidAdmin_ShouldStopGame()
+    {
+        // Arrange
+        long chatId = 123456;
+        long userId = 789012; // Админ
+        Guid gameId = Guid.NewGuid(); // Идентификатор игры
+        await _gameCrud.Create(chatId, "USD", 100m); // Создаем игру для теста
+
+        // Act
+        await _gameService.StopGame(chatId, userId, gameId);
+
+        // Assert
+        // Проверка, что метод NotifyGameStopped был вызван
+        _mockNotificationService.Verify(service => service.NotifyGameStopped(chatId), Times.Once);
+    }
+
+    /// <summary>
+    /// Тест, проверяющий, что неавторизованный пользователь получает уведомление о невозможности остановить игру.
+    /// </summary>
+    /// <returns>Тест на уведомление для неавторизованного пользователя при остановке игры.</returns>
+    [Fact]
+    public async Task StopGame_UnauthorizedUser_ShouldNotifyUnauthorized()
+    {
+        // Arrange
+        long chatId = 123456;
+        long userId = 111111; // Не админ
+        Guid gameId = Guid.NewGuid(); // Идентификатор игры
+        await _gameCrud.Create(chatId, "USD", 100m); // Создаем игру для теста
+
+        // Act
+        await _gameService.StopGame(chatId, userId, gameId);
+
+        // Assert
+        // Проверка, что метод NotifyUnauthorized был вызван
+        _mockNotificationService.Verify(service => service.NotifyUnauthorized(chatId), Times.Once);
+    }
+
+    /// <summary>
+    /// Тест, проверяющий, что игра не найдена при попытке остановить её.
+    /// </summary>
+    /// <returns>Тест на уведомление о том, что игра не найдена.</returns>
+    [Fact]
+    public async Task StopGame_GameNotFound_ShouldNotifyGameNotFound()
+    {
+        // Arrange
+        long chatId = 123456;
+        long userId = 789012; // Админ
+        Guid gameId = Guid.NewGuid(); // Идентификатор игры, которой нет в базе
+
+        // Act
+        await _gameService.StopGame(chatId, userId, gameId);
+
+        // Assert
+        // Проверка, что метод NotifyGameNotFound был вызван
+        _mockNotificationService.Verify(service => service.NotifyGameNotFound(chatId), Times.Once);
+    }
+
+    /// <summary>
+    /// Тест, проверяющий, что игра сбрасывается для админа.
+    /// </summary>
+    /// <returns>Тест на сброс игры для админа.</returns>
+    [Fact]
+    public async Task ResetGame_ValidAdmin_ShouldResetGame()
+    {
+        // Arrange
+        long chatId = 123456;
+        long userId = 789012; // Админ
+        Guid gameId = Guid.NewGuid(); // Идентификатор игры
+        await _gameCrud.Create(chatId, "USD", 100m); // Создаем игру для теста
+
+        // Act
+        await _gameService.ResetGame(chatId, userId, gameId);
+
+        // Assert
+        // Проверка, что метод NotifyGameReset был вызван
+        _mockNotificationService.Verify(service => service.NotifyGameReset(chatId), Times.Once);
+        // Проверка, что игра была удалена
+        var game = await _gameCrud.Read(gameId);
+        Assert.Null(game); // Игра должна быть удалена
+    }
+
+    /// <summary>
+    /// Тест, проверяющий, что неавторизованный пользователь получает уведомление о невозможности сбросить игру.
+    /// </summary>
+    /// <returns>Тест на уведомление для неавторизованного пользователя при сбросе игры.</returns>
+    [Fact]
+    public async Task ResetGame_UnauthorizedUser_ShouldNotifyUnauthorized()
+    {
+        // Arrange
+        long chatId = 123456;
+        long userId = 111111; // Не админ
+        Guid gameId = Guid.NewGuid(); // Идентификатор игры
+        await _gameCrud.Create(chatId, "USD", 100m); // Создаем игру для теста
+
+        // Act
+        await _gameService.ResetGame(chatId, userId, gameId);
+
+        // Assert
+        // Проверка, что метод NotifyUnauthorized был вызван
+        _mockNotificationService.Verify(service => service.NotifyUnauthorized(chatId), Times.Once);
+    }
+
+    /// <summary>
+    /// Тест, проверяющий, что игра не найдена при попытке сбросить её.
+    /// </summary>
+    /// <returns>Тест на уведомление о том, что игра не найдена при сбросе.</returns>
+    [Fact]
+    public async Task ResetGame_GameNotFound_ShouldNotifyGameNotFound()
+    {
+        // Arrange
+        long chatId = 123456;
+        long userId = 789012; // Админ
+        Guid gameId = Guid.NewGuid(); // Идентификатор игры, которой нет в базе
+
+        // Act
+        await _gameService.ResetGame(chatId, userId, gameId);
+
+        // Assert
+        // Проверка, что метод NotifyGameNotFound был вызван
+        _mockNotificationService.Verify(service => service.NotifyGameNotFound(chatId), Times.Once);
+    }
 }
 
