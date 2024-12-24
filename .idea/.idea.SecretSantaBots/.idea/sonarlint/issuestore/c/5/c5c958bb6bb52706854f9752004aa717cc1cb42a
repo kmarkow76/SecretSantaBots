@@ -1,7 +1,8 @@
 
-©csharpsquid:S3776"ZRefactor this top-level file to reduce its Cognitive Complexity from 38 to the 15 allowed.(½ğ³ÿÿÿÿÿ8¯ƒ¢Ê¿2J$f8236a16-fdc5-4f4f-b331-768190d98e02
-bcsharpsquid:S2930:">Dispose 'cancellationTokenSource' when it is no longer needed.(Ï÷éƒ8¨ªºÊ¿2
-Rcsharpsquid:S2259p".'game' is null on at least one execution path.(™Ì¾Ê8©ªºÊ¿2
-Scsharpsquid:S2259".'game' is null on at least one execution path.(¢ˆõ 8©ªºÊ¿2
-{csharpsquid:S1481"1Remove the unused local variable 'configuration'.(ş‰¿®8‡±¹Ê¿2J$610f4816-85cd-4589-a213-ff1793e7c3f9
-Xcsharpsquid:S1481J"/Remove the unused local variable 'gameService'.(ÆÒÏ‚ÿÿÿÿÿ8©ªºÊ¿2
+©csharpsquid:S3776"ZRefactor this top-level file to reduce its Cognitive Complexity from 38 to the 15 allowed.(½ğ³ÿÿÿÿÿ8¯ƒ¢Ê¿2J$975b0660-884f-4c8d-a488-378efbecfe47
+bcsharpsquid:S2930;">Dispose 'cancellationTokenSource' when it is no longer needed.(Ï÷éƒ8–ŸËË¿2
+Rcsharpsquid:S2259o".'game' is null on at least one execution path.(™Ì¾Ê8—ŸËË¿2
+Scsharpsquid:S2259".'game' is null on at least one execution path.(¢ˆõ 8—ŸËË¿2
+{csharpsquid:S1481"1Remove the unused local variable 'configuration'.(ş‰¿®8‡±¹Ê¿2J$6877b469-cc6c-41a2-8915-8ba6aabfad57
+Xcsharpsquid:S1481J"/Remove the unused local variable 'gameService'.(ÆÒÏ‚ÿÿÿÿÿ8˜ŸËË¿2
+Gcsharpsquid:S125"Remove this commented out code.(ùËùÿÿÿÿ8™ŸËË¿2
