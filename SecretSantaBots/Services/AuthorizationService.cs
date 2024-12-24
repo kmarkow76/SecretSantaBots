@@ -8,24 +8,19 @@ namespace SecretSantaBots.Services
         /// <summary>
         /// Множество идентификаторов пользователей, которые являются администраторами.
         /// </summary>
-        private readonly HashSet<long> _admins;
+        private readonly List<long> _admins;
 
         /// <summary>
         /// Конструктор, инициализирующий список администраторов.
         /// </summary>
         /// <param name="admins">Коллекция идентификаторов пользователей, которые являются администраторами.</param>
-        public AuthorizationService(IEnumerable<long> admins)
-        {
-            _admins = new HashSet<long>(admins);
-        }
-
-        /// <summary>
-        /// Простой конструктор без параметров для случая, когда список администраторов задается позже.
-        /// </summary>
         public AuthorizationService()
         {
+            _admins = new List<long>
+            {
+                904281253
+            };
         }
-
         /// <summary>
         /// Проверяет, является ли пользователь администратором.
         /// </summary>

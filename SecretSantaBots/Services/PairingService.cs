@@ -4,7 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Abstractions;
 using SecretSantaBots.DataBase;
+using Telegram.Bot;
+using Telegram.Bot.Types;
 
 namespace SecretSantaBots.Services
 {
@@ -14,14 +17,15 @@ namespace SecretSantaBots.Services
     public class PairingService
     {
         private readonly ApplicationDbContext _context;
-
+        private readonly NotificationService _notificationService;
         /// <summary>
         /// Конструктор для инициализации сервиса с контекстом базы данных.
         /// </summary>
         /// <param name="context">Контекст базы данных для работы с участниками и играми.</param>
-        public PairingService(ApplicationDbContext context)
+        public PairingService(ApplicationDbContext context, NotificationService notificationService)
         {
             _context = context;
+            _notificationService = notificationService;
         }
 
         /// <summary>
@@ -37,17 +41,23 @@ namespace SecretSantaBots.Services
         /// <param name="gameId">Идентификатор игры, для которой нужно распределить участников по парам.</param>
         /// <returns>Возвращает список участников с назначенными парами.</returns>
         /// <exception cref="InvalidOperationException">Бросает исключение, если количество участников нечётное.</exception>
-        public async Task AssignPairs(Guid gameId)
+        public async Task AssignPairs(long chatId,Guid gameId)
         {
             // Извлекаем всех участников игры, которые ещё не имеют назначенной пары
             var participants = await _context.Participants
                 .Where(p => p.GameId == gameId && !p.AssignedToId.HasValue) // Только не назначенные участники
                 .ToListAsync();
-
+            
+            // Проверка на наличие участников
+            if (participants.Count == 0)
+            {
+                throw new InvalidOperationException("В игре нет участников.");
+            }
+            
             // Проверяем, что количество участников чётное
             if (participants.Count % 2 != 0)
             {
-                throw new InvalidOperationException("Количество участников должно быть чётным для распределения пар.");
+                _notificationService.OddNumberOfParticipants(chatId);
             }
 
             // Перемешиваем участников случайным образом
@@ -70,6 +80,7 @@ namespace SecretSantaBots.Services
 
             // Сохраняем изменения в базе данных
             await _context.SaveChangesAsync();
+            
         }
     }
 }
